@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Typography, Space, Flex, Image } from "antd";
 import logo from "../assets/image/logo.png";
+import {  EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const { Text } = Typography;
 const PasswordRules = () => (
@@ -45,11 +46,11 @@ const RegisterForm = () => {
               ]}
             >
               <Input
+                disabled
                 style={{ width: 400, height: 40 }}
                 placeholder="0354722031"
               />
             </Form.Item>
-
             <Form.Item
               label="パスワード"
               name="password"
@@ -57,7 +58,16 @@ const RegisterForm = () => {
                 { required: true, message: "パスワードを入力してください" },
               ]}
             >
-              <Input.Password style={{ width: 400, height: 40 }} />
+              <Input.Password
+                style={{ width: 400, height: 40 }}
+                iconRender={(visible) =>
+                  visible ? (
+                    <EyeTwoTone style={{ fontSize: 18 }} />
+                  ) : (
+                    <EyeInvisibleOutlined style={{ fontSize: 18 }} />
+                  )
+                }
+              />
             </Form.Item>
 
             <Form.Item
@@ -70,7 +80,16 @@ const RegisterForm = () => {
                 },
               ]}
             >
-              <Input.Password style={{ width: 400, height: 40 }} />
+              <Input.Password
+                style={{ width: 400, height: 40 }}
+                iconRender={(visible) =>
+                  visible ? (
+                    <EyeTwoTone style={{ fontSize: 18,background:"red" }} />
+                  ) : (
+                    <EyeInvisibleOutlined style={{ fontSize: 18 }} />
+                  )
+                }
+              />
             </Form.Item>
           </Form>
           <PasswordRules />

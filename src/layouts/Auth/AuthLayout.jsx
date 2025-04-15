@@ -7,7 +7,9 @@ const { Link, Text, Title } = Typography;
 
 const AuthLayout = ({ children }) => {
   return (
-    <Layout style={{ minHeight: "100vh", background: "rgba(255, 255, 255, 1)" }}>
+    <Layout
+      style={{ minHeight: "100vh", background: "rgba(255, 255, 255, 1)" }}
+    >
       <Header
         style={{
           background: "transparent",
@@ -59,12 +61,12 @@ const AuthLayout = ({ children }) => {
       >
         <Flex vertical gap={10} align="center" justify="center">
           <StyledText>株式会社やさしい手</StyledText>
-          <StyledText style={{ color: "white" }}>
+          <Text style={{ color: "white", font: "20" }}>
             〒153-0044 東京都目黒区大橋2-24-3 中村ビル4階
-          </StyledText>
-          <StyledText style={{ color: "white" }}>
+          </Text>
+          <Text style={{ color: "white", font: "20" }}>
             © 2006 YASASHIITE, Inc.
-          </StyledText>
+          </Text>
         </Flex>
       </Footer>
     </Layout>
