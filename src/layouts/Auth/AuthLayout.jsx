@@ -1,6 +1,5 @@
 import React from "react";
 import { Flex, Layout, Typography } from "antd";
-import { StyledText } from "./AuthStyle";
 
 const { Header, Footer, Content } = Layout;
 const { Link, Text, Title } = Typography;
@@ -10,23 +9,18 @@ const AuthLayout = ({ children }) => {
     <Layout
       style={{ minHeight: "100vh", background: "rgba(255, 255, 255, 1)" }}
     >
-      <Header
-        style={{
-          background: "transparent",
-          display: "flex",
-          justifyContent: "flex-end",
-          gap: 20,
-        }}
-      >
-        <Link style={{ color: "#D893BA" }} href="#">
-          やさしい手ホームページ
-        </Link>
-        <Link style={{ color: "#D893BA" }} href="#">
-          プライバシーポリシー
-        </Link>
-        <Link style={{ color: "#D893BA" }} href="#">
-          ガイド
-        </Link>
+      <Header style={{ backgroundColor: "white" }}>
+        <Flex gap={8} align="center" justify="flex-end" style={{ padding: 20 }}>
+          <Link style={{ color: "#D893BA", padding: "15px 6.4px" }} href="#">
+            やさしい手ホームページ
+          </Link>
+          <Link style={{ color: "#D893BA", padding: "15px 6.4px" }} href="#">
+            プライバシーポリシー
+          </Link>
+          <Link style={{ color: "#D893BA", padding: "15px 6.4px" }} href="#">
+            ヘルプ
+          </Link>
+        </Flex>
       </Header>
 
       <Content
@@ -60,7 +54,7 @@ const AuthLayout = ({ children }) => {
         }}
       >
         <Flex vertical gap={10} align="center" justify="center">
-          <StyledText>株式会社やさしい手</StyledText>
+          <Text style={{ color: "white", font: "24" }}>株式会社やさしい手</Text>
           <Text style={{ color: "white", font: "20" }}>
             〒153-0044 東京都目黒区大橋2-24-3 中村ビル4階
           </Text>

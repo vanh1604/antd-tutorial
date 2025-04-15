@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { Form, Input, Button, Typography, Space, Flex, Image } from "antd";
+import React from "react";
+import { Form, Input, Button, Typography, Flex, Image } from "antd";
 import logo from "../assets/image/logo.png";
-import {  EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const { Text } = Typography;
 const PasswordRules = () => (
-  <div style={{ width: 448 }}>
+  <div style={{ flex: 1, padding: "0 24px" }}>
     <Text style={{ color: "rgba(0, 0, 0, 0.45)", font: "14" }}>
       パスワードの設定ルール
     </Text>
     <div>
-      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14" }}>
+      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14", opacity: 0.65 }}>
         パスワードは8文字以上32文字以内で設定ください。
       </li>
-      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14" }}>
+      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14", opacity: 0.65 }}>
         パスワードは半角英数で設定ください。
       </li>
-      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14" }}>
+      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14", opacity: 0.65 }}>
         パスワードには数字と英字の2種を含めてください。
       </li>
-      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14" }}>
+      <li style={{ color: "rgba(0, 0, 0, 0.65)", font: "14", opacity: 0.65 }}>
         パスワードにはスペースや記号は使用できません。
       </li>
     </div>
@@ -28,16 +28,16 @@ const PasswordRules = () => (
 const RegisterForm = () => {
   return (
     <Flex vertical align="center" style={{ flex: 1 }}>
-      <Image height={80} width={220} preview={false} src={logo} />
+      <Image preview={false} src={logo} />
       <div style={{ width: "100%" }}>
         <Typography.Title level={4}>アカウント情報</Typography.Title>
 
         <Flex
-          style={{ width: "992", padding: "0 20px" }}
+          style={{ padding: "0 20px" }}
           align="start"
           justify="space-between"
         >
-          <Form layout="vertical">
+          <Form style={{ flex: 1, padding: "24" }} layout="vertical">
             <Form.Item
               label="ユーザー名"
               name="username"
@@ -45,11 +45,7 @@ const RegisterForm = () => {
                 { required: true, message: "ユーザー名を入力してください" },
               ]}
             >
-              <Input
-                disabled
-                style={{ width: 400, height: 40 }}
-                placeholder="0354722031"
-              />
+              <Input size="large" disabled placeholder="0354722031" />
             </Form.Item>
             <Form.Item
               label="パスワード"
@@ -59,14 +55,29 @@ const RegisterForm = () => {
               ]}
             >
               <Input.Password
-                style={{ width: 400, height: 40 }}
-                iconRender={(visible) =>
-                  visible ? (
-                    <EyeTwoTone style={{ fontSize: 18 }} />
-                  ) : (
-                    <EyeInvisibleOutlined style={{ fontSize: 18 }} />
-                  )
-                }
+                style={{ position: "relative", overflow: "hidden" }}
+                size="large"
+                iconRender={(visible) => (
+                  <div
+                    style={{
+                      display: "grid",
+                      placeItems: "center",
+                      paddingInline: 12,
+                      fontSize: 14,
+                      backgroundColor: "#FAFAFA",
+                      border: "1px solid #D9D9D9",
+                      position: "absolute",
+                      inset: 0,
+                      left: "unset",
+                    }}
+                  >
+                    {visible ? (
+                      <EyeTwoTone twoToneColor={"black"} />
+                    ) : (
+                      <EyeInvisibleOutlined />
+                    )}
+                  </div>
+                )}
               />
             </Form.Item>
 
@@ -81,22 +92,40 @@ const RegisterForm = () => {
               ]}
             >
               <Input.Password
-                style={{ width: 400, height: 40 }}
-                iconRender={(visible) =>
-                  visible ? (
-                    <EyeTwoTone style={{ fontSize: 18,background:"red" }} />
-                  ) : (
-                    <EyeInvisibleOutlined style={{ fontSize: 18 }} />
-                  )
-                }
+                style={{ position: "relative", overflow: "hidden" }}
+                size="large"
+                iconRender={(visible) => (
+                  <div
+                    style={{
+                      display: "grid",
+                      placeItems: "center",
+                      paddingInline: 12,
+                      fontSize: 14,
+                      backgroundColor: "#FAFAFA",
+                      border: "1px solid #D9D9D9",
+                      position: "absolute",
+                      inset: 0,
+                      left: "unset",
+                    }}
+                  >
+                    {visible ? (
+                      <EyeTwoTone twoToneColor={"black"} />
+                    ) : (
+                      <EyeInvisibleOutlined />
+                    )}
+                  </div>
+                )}
               />
             </Form.Item>
           </Form>
-          <PasswordRules />
+          <div style={{ flex: 1, padding: "0 24px" }}>
+            <PasswordRules />
+          </div>
         </Flex>
       </div>
       <Flex align="center" justify="center">
         <Button
+          size="large"
           style={{ backgroundColor: "#D893BA", color: "white" }}
           htmlType="submit"
         >

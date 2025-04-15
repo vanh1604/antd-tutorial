@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Flex, Layout, Menu, Space, Typography } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
+
 
 const { Header, Footer, Content } = Layout;
 const { Text } = Typography;
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   const location = useLocation();
 
   const getSelectedKey = (path) => {
@@ -61,11 +62,27 @@ const MainLayout = ({ children }) => {
         </Flex>
       </Header>
 
-      <Content style={{ padding: "24px", minHeight: "80vh" }}>
-        {children}
+      <Content style={{ padding: "24px", minHeight: "100vh" }}>
+        <Outlet />
       </Content>
 
-      <Footer style={{ textAlign: "center" }}>©2025 Created by Cody</Footer>
+      <Footer
+        style={{
+          textAlign: "center",
+          background: "rgba(235, 201, 223, 1)",
+          color: "#fff",
+        }}
+      >
+        <Flex vertical gap={10} align="center" justify="center">
+          <Text style={{ color: "white", font: "24" }}>株式会社やさしい手</Text>
+          <Text style={{ color: "white", font: "20" }}>
+            〒153-0044 東京都目黒区大橋2-24-3 中村ビル4階
+          </Text>
+          <Text style={{ color: "white", font: "20" }}>
+            © 2006 YASASHIITE, Inc.
+          </Text>
+        </Flex>
+      </Footer>
     </Layout>
   );
 };
